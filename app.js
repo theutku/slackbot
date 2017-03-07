@@ -10,7 +10,7 @@ app.get('/status', (req, res, next) => {
     res.status(200).send('App Works!');
 });
 
-app.listen(port, function (err) {
+app.listen(process.env.port || port, function (err) {
     if (err) {
         console.log(err);
     } else {
