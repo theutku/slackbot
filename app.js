@@ -10,6 +10,15 @@ app.get('/status', (req, res, next) => {
     res.status(200).send('App Works!');
 });
 
+app.listen(port, function (err) {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log('App started listening at port: ' + this.address().port);
+    }
+});
+
+
 app.post('/hello', (req, res, next) => {
     var userName = req.body.user_name;
     var botPayLoad = {
@@ -23,11 +32,4 @@ app.post('/hello', (req, res, next) => {
     }
 })
 
-app.listen(port, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        console.log('App started listening at port: ' + this.address().port);
-    }
-});
 
