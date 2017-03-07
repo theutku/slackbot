@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var app = express();
-const port = process.env.port || 1337;
+const port = 1337;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -14,7 +14,7 @@ app.listen(port, function (err) {
     if (err) {
         console.log(err);
     } else {
-        console.log('App started listening at port: ' + this.address().port);
+        console.log('App started listening at port: ' + port);
     }
 });
 
