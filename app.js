@@ -7,15 +7,19 @@ const port = 5000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.set('port', (process.env.PORT || 5000));
+
 app.get('/status', (req, res, next) => {
     res.status(200).send('App Works!');
 });
 
-var server = http.createServer();
 
-server.listen(process.env.port || 5000);
-
-console.log('Server started listening at port: ', port);
+app.get('/', function (request, response) {
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function () {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
 
 app.post('/hello', (req, res, next) => {
     var userName = req.body.user_name;
